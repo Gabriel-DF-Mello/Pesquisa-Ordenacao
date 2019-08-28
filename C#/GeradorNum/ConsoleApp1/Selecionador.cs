@@ -150,7 +150,7 @@ namespace GeradorNum
                     }
                 }
                 stt += 1;
-            } while (trocado);
+            } while ((trocado)&&(stt<=end));
 
             relogio.Stop();
             Console.WriteLine("Tempo passado: " + relogio.Elapsed + "\nQuantidade de comparações: " + qtdCmp + "\nQuantidade de trocas: " + qtdTrc);
