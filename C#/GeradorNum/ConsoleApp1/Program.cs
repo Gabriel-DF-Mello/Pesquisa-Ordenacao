@@ -15,16 +15,17 @@ namespace GeradorNum
         public static void Main(string[] args)
         {
             int[] v, vO;
+            //Gerador.Gerar();
             v = Gerador.Ler();
 
-            vO = Selecionador.BubbleSort(v);
+            vO = Selecionador.CocktailSort(v);
             Console.ReadLine();
 
-            foreach (int ele in vO)
+            /*foreach (int ele in vO)
             {
                 Console.WriteLine(ele);
             }
-            Console.ReadLine();
+            Console.ReadLine();*/
 
         }
     }

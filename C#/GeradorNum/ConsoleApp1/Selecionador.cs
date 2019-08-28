@@ -99,5 +99,62 @@ namespace GeradorNum
             Console.WriteLine("Tempo passado: " + relogio.Elapsed + "\nQuantidade de comparações: " + qtdCmp + "\nQuantidade de trocas: " + qtdTrc);
             return v;
         }
+
+
+
+        public static int[] CocktailSort(int[] v)
+        {
+            var relogio = new System.Diagnostics.Stopwatch();
+            int stt = 0, end = v.Length;
+            int aux;
+            bool trocado = false;
+            int qtdCmp = 0, qtdTrc = 0;
+
+            relogio.Start();
+            do
+            {
+                trocado = false;
+                for (int i = stt; i < end - 1; i += 1)
+                {
+                    qtdCmp += 1;
+
+                    if (v[i] > v[i + 1])
+                    {
+                        qtdTrc += 1;
+                        aux = v[i];
+                        v[i] = v[i + 1];
+                        v[i + 1] = aux;
+                        trocado = true;
+                    }
+                }
+                end -= 1;
+
+                if (!trocado)
+                {
+                    relogio.Stop();
+                    Console.WriteLine("Tempo passado: " + relogio.Elapsed + "\nQuantidade de comparações: " + qtdCmp + "\nQuantidade de trocas: " + qtdTrc);
+                    return v;
+                }
+
+                for (int i = end; i > stt; i -= 1)
+                {
+                    qtdCmp += 1;
+
+                    if (v[i] < v[i - 1])
+                    {
+                        qtdTrc += 1;
+                        aux = v[i];
+                        v[i] = v[i - 1];
+                        v[i - 1] = aux;
+                        trocado = true;
+                    }
+                }
+                stt += 1;
+            } while (trocado);
+
+            relogio.Stop();
+            Console.WriteLine("Tempo passado: " + relogio.Elapsed + "\nQuantidade de comparações: " + qtdCmp + "\nQuantidade de trocas: " + qtdTrc);
+            return v;
+        }
     }
 }
