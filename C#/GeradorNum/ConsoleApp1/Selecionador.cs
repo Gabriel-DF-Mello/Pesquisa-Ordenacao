@@ -8,8 +8,9 @@ namespace GeradorNum
 {
     static class Selecionador
     {
-        public static int[] SelectionSort(int[] v)
+        public static void SelectionSort(int[] v)
         {
+            Console.WriteLine("Selection Sort");
             var relogio = new System.Diagnostics.Stopwatch();
             int pos_menor;
             int aux;
@@ -39,11 +40,11 @@ namespace GeradorNum
             }
             relogio.Stop();
             Console.WriteLine("Tempo passado: " + relogio.Elapsed + "\nQuantidade de comparações: " + qtdCmp + "\nQuantidade de trocas: " + qtdTrc);
-            return v;
         }
 
-        public static int[] InsertionSort(int[] v)
+        public static void InsertionSort(int[] v)
         {
+            Console.WriteLine("Insertion Sort");
             var relogio = new System.Diagnostics.Stopwatch();
             int aux;
             int qtdCmp = 1, qtdTrc = 0;
@@ -64,11 +65,11 @@ namespace GeradorNum
             }
             relogio.Stop();
             Console.WriteLine("Tempo passado: " + relogio.Elapsed + "\nQuantidade de comparações: " + qtdCmp + "\nQuantidade de trocas: " + qtdTrc);
-            return v;
         }
 
-        public static int[] BubbleSort(int[] v)
+        public static void BubbleSort(int[] v)
         {
+            Console.WriteLine("Bubble Sort");
             var relogio = new System.Diagnostics.Stopwatch();
             int n = v.Length;
             int aux;
@@ -97,13 +98,13 @@ namespace GeradorNum
 
             relogio.Stop();
             Console.WriteLine("Tempo passado: " + relogio.Elapsed + "\nQuantidade de comparações: " + qtdCmp + "\nQuantidade de trocas: " + qtdTrc);
-            return v;
         }
 
 
 
-        public static int[] CocktailSort(int[] v)
+        public static void CocktailSort(int[] v)
         {
+            Console.WriteLine("Cocktail Sort");
             var relogio = new System.Diagnostics.Stopwatch();
             int stt = 0, end = v.Length;
             int aux;
@@ -133,7 +134,6 @@ namespace GeradorNum
                 {
                     relogio.Stop();
                     Console.WriteLine("Tempo passado: " + relogio.Elapsed + "\nQuantidade de comparações: " + qtdCmp + "\nQuantidade de trocas: " + qtdTrc);
-                    return v;
                 }
 
                 for (int i = end; i > stt; i -= 1)
@@ -154,7 +154,39 @@ namespace GeradorNum
 
             relogio.Stop();
             Console.WriteLine("Tempo passado: " + relogio.Elapsed + "\nQuantidade de comparações: " + qtdCmp + "\nQuantidade de trocas: " + qtdTrc);
-            return v;
+        }
+
+        public static void CombSort(int[] v)
+        {
+            Console.WriteLine("Comb Sort");
+            var relogio = new System.Diagnostics.Stopwatch();
+            int distancia = (int) (v.Length / 1.3);
+            int aux;
+            bool trocado = false;
+            int qtdCmp = 0, qtdTrc = 0;
+
+            relogio.Start();
+            do
+            {
+                distancia = (int) (distancia / 1.3);
+                if (distancia < 1) distancia = 1;
+
+                trocado = false;
+                for (int i = 0; i + distancia < v.Length; i++)
+                {
+                    qtdCmp+=1;
+                    if (v[i] > v[i + distancia])
+                    {
+                        aux = v[i];
+                        v[i] = v[i + distancia];
+                        v[i + distancia] = aux;
+                        trocado = true;
+                        qtdTrc+=1;
+                    }
+                }
+            } while (distancia != 1 || trocado);
+            relogio.Stop();
+            Console.WriteLine("Tempo passado: " + relogio.Elapsed + "\nQuantidade de comparações: " + qtdCmp + "\nQuantidade de trocas: " + qtdTrc);
         }
     }
 }
