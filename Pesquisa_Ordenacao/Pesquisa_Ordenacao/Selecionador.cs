@@ -8,6 +8,8 @@ namespace Pesquisa_Ordenacao
 {
     static class Selecionador
     {
+        static int mergeQtdCmp = 0;
+        static int mergeQtdTrc = 0;
         public static string SelectionSort(int[] v)
         {
             var relogio = new System.Diagnostics.Stopwatch();
@@ -224,23 +226,76 @@ namespace Pesquisa_Ordenacao
             return message;
         }
 
-        public static string MergeSort(int[] v, int stt, int end)
+        public static string DisplayMergeSort(int[] v, int stt, int end)
         {
             var relogio = new System.Diagnostics.Stopwatch();
-            int aux, mid = (stt + end) / 2;
-            int qtdCmp = 0, qtdTrc = 0;
-
-            if (mid > stt) MergeSort(v, stt, mid - 1);
-            if (end > mid) MergeSort(v, mid, end);
-            Merge(v, stt, end);//Ponto de retorno, inicio da ordenação
-
+            relogio.Start();
+            MergeSort(v, stt, end);
             relogio.Stop();
-            string message = Environment.NewLine + "Shell Sort: " + Environment.NewLine + "Tempo passado: " + relogio.Elapsed + " " + Environment.NewLine + "Quantidade de comparações: " + qtdCmp + " " + Environment.NewLine + "Quantidade de trocas: " + qtdTrc + " " + Environment.NewLine;
+            string message = Environment.NewLine + "Merge Sort: " + Environment.NewLine + "Tempo passado: " + relogio.Elapsed + " " + Environment.NewLine + "Quantidade de comparações: " + mergeQtdCmp + " " + Environment.NewLine + "Quantidade de trocas: " + mergeQtdTrc + " " + Environment.NewLine;
+            mergeQtdTrc = 0;
+            mergeQtdCmp = 0;
             return message;
         }
 
-        public static void Merge(int[] v, int stt, int end){
-            
+        public static void MergeSort(int[] v, int stt, int end)
+        {
+            if (stt < end)
+            {
+                int mid = (stt + end) / 2;
+                //Console.WriteLine("stt: " + stt + "\nmid: " + mid + "\nend: " + end + "\n\n");
+                if(mid > stt) MergeSort(v, stt, mid);
+                if(end > mid) MergeSort(v, mid + 1, end);
+                Merge(v, stt, mid, end);//Ponto de retorno, inicio da ordenação
+            }
+        }
+
+        public static void Merge(int[] v, int stt, int mid, int end){
+            int i = stt;
+            int j = mid + 1;
+            int k = 0;
+            int size = (end - stt) + 1;
+
+            int[] aux = new int[size];
+
+            while((i <= mid) && (j <= end)){
+                mergeQtdCmp += 1;
+                if(v[i] < v[j])
+                {
+                    mergeQtdTrc += 1;
+                    aux[k] = v[i];
+                    i += 1;
+                }
+                else
+                {
+                    mergeQtdTrc += 1;
+                    aux[k] = v[j];
+                    j += 1;
+                }
+                k += 1;
+            }
+
+            while(i <= mid)
+            {
+                mergeQtdTrc += 1;
+                aux[k] = v[i];
+                i += 1;
+                k += 1;
+            }
+
+            while (j <= end)
+            {
+                mergeQtdTrc += 1;
+                aux[k] = v[j];
+                j += 1;
+                k += 1;
+            }
+
+            for(int p = stt; p <= end; p++)
+            {
+                v[p] = aux[p - stt];
+            }
+            aux = null;
         }
     }
 }

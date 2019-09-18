@@ -63,6 +63,13 @@ namespace Pesquisa_Ordenacao
                 template.CopyTo(v, 0);
                 listResults.AppendText(result);
             }
+
+            if (checkBoxMerge.Checked)
+            {
+                result = Selecionador.DisplayMergeSort(v,0,v.Length-1);
+                template.CopyTo(v, 0);
+                listResults.AppendText(result);
+            }
         }
 
         [STAThread]

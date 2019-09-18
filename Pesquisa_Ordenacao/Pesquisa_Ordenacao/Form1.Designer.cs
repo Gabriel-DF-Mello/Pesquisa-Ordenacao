@@ -45,6 +45,7 @@ namespace Pesquisa_Ordenacao
             this.panelFile = new System.Windows.Forms.Panel();
             this.labelCurrentFile = new System.Windows.Forms.Label();
             this.listResults = new System.Windows.Forms.TextBox();
+            this.checkBoxMerge = new System.Windows.Forms.CheckBox();
             this.panelSorting.SuspendLayout();
             this.panelFile.SuspendLayout();
             this.SuspendLayout();
@@ -140,7 +141,7 @@ namespace Pesquisa_Ordenacao
             // 
             // btnRun
             // 
-            this.btnRun.Location = new System.Drawing.Point(16, 297);
+            this.btnRun.Location = new System.Drawing.Point(16, 341);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(229, 23);
             this.btnRun.TabIndex = 9;
@@ -150,6 +151,7 @@ namespace Pesquisa_Ordenacao
             // 
             // panelSorting
             // 
+            this.panelSorting.Controls.Add(this.checkBoxMerge);
             this.panelSorting.Controls.Add(this.checkBoxCocktail);
             this.panelSorting.Controls.Add(this.checkBoxSelection);
             this.panelSorting.Controls.Add(this.checkBoxShell);
@@ -158,7 +160,7 @@ namespace Pesquisa_Ordenacao
             this.panelSorting.Controls.Add(this.checkBoxBubble);
             this.panelSorting.Location = new System.Drawing.Point(16, 111);
             this.panelSorting.Name = "panelSorting";
-            this.panelSorting.Size = new System.Drawing.Size(229, 180);
+            this.panelSorting.Size = new System.Drawing.Size(229, 214);
             this.panelSorting.TabIndex = 10;
             // 
             // panelFile
@@ -191,15 +193,25 @@ namespace Pesquisa_Ordenacao
             this.listResults.Name = "listResults";
             this.listResults.ReadOnly = true;
             this.listResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.listResults.Size = new System.Drawing.Size(409, 308);
+            this.listResults.Size = new System.Drawing.Size(409, 352);
             this.listResults.TabIndex = 12;
             this.listResults.Text = "...";
+            // 
+            // checkBoxMerge
+            // 
+            this.checkBoxMerge.AutoSize = true;
+            this.checkBoxMerge.Location = new System.Drawing.Point(14, 178);
+            this.checkBoxMerge.Name = "checkBoxMerge";
+            this.checkBoxMerge.Size = new System.Drawing.Size(100, 21);
+            this.checkBoxMerge.TabIndex = 9;
+            this.checkBoxMerge.Text = "Merge Sort";
+            this.checkBoxMerge.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(695, 336);
+            this.ClientSize = new System.Drawing.Size(695, 376);
             this.Controls.Add(this.listResults);
             this.Controls.Add(this.panelFile);
             this.Controls.Add(this.panelSorting);
@@ -234,6 +246,7 @@ namespace Pesquisa_Ordenacao
         private ArrayList messages;
         int[] template, v;
         private System.Windows.Forms.TextBox listResults;
+        private System.Windows.Forms.CheckBox checkBoxMerge;
     }
 }
 
