@@ -250,7 +250,8 @@ namespace Pesquisa_Ordenacao
             }
         }
 
-        public static void Merge(int[] v, int stt, int mid, int end){
+        public static void Merge(int[] v, int stt, int mid, int end)
+        {
             int i = stt;
             int j = mid + 1;
             int k = 0;
@@ -296,6 +297,54 @@ namespace Pesquisa_Ordenacao
                 v[p] = aux[p - stt];
             }
             aux = null;
+        }
+
+        public static string HeapSort(int[] v)
+        {
+            var relogio = new System.Diagnostics.Stopwatch();
+            int aux;
+            int i;
+            int qtdCmp = 0, qtdTrc = 0;
+            int n = v.Length - 1;
+            relogio.Start();
+
+            while (n > 1)
+            {
+                for (i = n / 2; i > 0; i -= 1)
+                {
+                    Console.WriteLine(i);
+                    qtdCmp++;
+                    if (v[i] < v[i * 2])
+                    {
+                        aux = v[i];
+                        v[i] = v[i * 2];
+                        v[i * 2] = aux;
+                        qtdTrc++;
+                    }
+
+                    if (i * 2 + 1 <= n)
+                    {
+                        qtdCmp++;
+                        if (v[i] < v[i * 2 + 1])
+                        {
+                            aux = v[i];
+                            v[i] = v[i * 2 + 1];
+                            v[i * 2 + 1] = aux;
+                            qtdTrc++;
+                        }
+                    }
+                }
+                aux = v[1];
+                v[1] = v[n];
+                v[n] = aux;
+                qtdTrc++;
+
+                n--;
+            }
+
+            relogio.Stop();
+            string message = Environment.NewLine + "Heap Sort: " + Environment.NewLine + "Tempo passado: " + relogio.Elapsed + " " + Environment.NewLine + "Quantidade de comparações: " + mergeQtdCmp + " " + Environment.NewLine + "Quantidade de trocas: " + mergeQtdTrc + " " + Environment.NewLine;
+            return message;
         }
     }
 }

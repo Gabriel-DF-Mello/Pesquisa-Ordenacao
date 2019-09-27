@@ -70,6 +70,34 @@ namespace Pesquisa_Ordenacao
                 template.CopyTo(v, 0);
                 listResults.AppendText(result);
             }
+
+            if (checkBoxQuick.Checked)
+            {
+                //result = Selecionador.DisplayMergeSort(v,0,v.Length-1);
+                //template.CopyTo(v, 0);
+                //listResults.AppendText(result);
+            }
+
+            if (checkBoxHeap.Checked)
+            {
+                result = Selecionador.HeapSort(v);
+                template.CopyTo(v, 0);
+                listResults.AppendText(result);
+            }
+
+            if (checkBoxBucket.Checked)
+            {
+                //result = Selecionador.DisplayMergeSort(v, 0, v.Length - 1);
+                //template.CopyTo(v, 0);
+                //listResults.AppendText(result);
+            }
+
+            if (checkBoxRadix.Checked)
+            {
+                //result = Selecionador.DisplayMergeSort(v, 0, v.Length - 1);
+                //template.CopyTo(v, 0);
+                //listResults.AppendText(result);
+            }
         }
 
         [STAThread]
