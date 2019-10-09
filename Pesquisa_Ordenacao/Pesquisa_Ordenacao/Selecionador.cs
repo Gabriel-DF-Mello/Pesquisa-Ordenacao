@@ -346,5 +346,91 @@ namespace Pesquisa_Ordenacao
             string message = Environment.NewLine + "Heap Sort: " + Environment.NewLine + "Tempo passado: " + relogio.Elapsed + " " + Environment.NewLine + "Quantidade de comparações: " + mergeQtdCmp + " " + Environment.NewLine + "Quantidade de trocas: " + mergeQtdTrc + " " + Environment.NewLine;
             return message;
         }
+
+        /*public static string BucketSort(int[] v, int digits)
+        {
+            var relogio = new System.Diagnostics.Stopwatch();
+            int qtdCmp = 0, qtdTrc = 0;
+            int n = v.Length;
+            int[] copy = new int[n];
+            int pos, i, tmp;
+            int[] buckets;
+
+            buckets = new int[digits];
+
+            for (i = 0; i < digits; i+=1)
+            {
+                buckets[i] = 0;
+            }
+
+            for (i = 0; i < n; i+=1)
+            {
+                copy[i] = v[i];
+                buckets[v[i]]+=1;
+            }
+
+            pos = 0;
+            for (i = 0; i < digits; i++)
+            {
+                if (buckets[i] != 0)
+                {
+                    tmp = buckets[i];
+                    buckets[i] = pos;
+                    pos = pos + tmp;
+                }
+            }
+
+            for (i = 0; i < n; i++)
+            {
+                tmp = copy[i];
+                v[buckets[tmp]++] = copy[i];
+            }
+
+            relogio.Stop();
+            string message = Environment.NewLine + "Bucket Sort: " + Environment.NewLine + "Tempo passado: " + relogio.Elapsed + " " + Environment.NewLine + "Quantidade de comparações: " + mergeQtdCmp + " " + Environment.NewLine + "Quantidade de trocas: " + mergeQtdTrc + " " + Environment.NewLine;
+            return message;
+        }*/
+
+        public static int getDigit(int val, int digit)
+        {
+            if (digit == 0) return val % ((int)Math.Pow(10, digit+1));
+            double tmp = Math.Pow(10, digit + 1);
+            return (int)((val % (int)tmp) / (int)Math.Pow(10, digit));
+        }
+
+        public static string RadixSort(int[] v, int digits)
+        {
+            var relogio = new System.Diagnostics.Stopwatch();
+            int qtdCmp = 0, qtdTrc = 0;
+            int n = v.Length;
+            int pos, i, j, tmp;
+            int[] bucket = new int[10];
+            int[] copy = new int[n];
+            relogio.Start();
+            for (j = 0; j < digits; j += 1)
+            {
+                for (i = 0; i < 10; i+=1) bucket[i] = 0;
+                for (i = 0; i < n; i += 1)
+                {
+                    copy[i] = v[i];
+                    bucket[getDigit(v[i], j)] += 1;
+                }
+                pos = 0;
+                for (i = 0; i < 10; i += 1)
+                {
+                    tmp = bucket[i];
+                    bucket[i] = pos;
+                    pos = pos + tmp;
+                }
+                for (i = 0; i < n; i += 1)
+                {
+                    tmp = getDigit(copy[i], j);
+                    v[bucket[tmp] += 1] = copy[i];
+                }
+            }
+            relogio.Stop();
+            string message = Environment.NewLine + "Radix Sort: " + Environment.NewLine + "Tempo passado: " + relogio.Elapsed + " " + Environment.NewLine + "Quantidade de comparações: " + mergeQtdCmp + " " + Environment.NewLine + "Quantidade de trocas: " + mergeQtdTrc + " " + Environment.NewLine;
+            return message;
+        }
     }
 }
