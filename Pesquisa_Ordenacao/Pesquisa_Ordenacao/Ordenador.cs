@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Pesquisa_Ordenacao
 {
-    static class Selecionador
+    static class Ordenador
     {
         static int mergeQtdCmp = 0;
         static int mergeQtdTrc = 0;
@@ -338,8 +338,7 @@ namespace Pesquisa_Ordenacao
                 v[1] = v[n];
                 v[n] = aux;
                 qtdTrc++;
-
-                n--;
+                n -=1;
             }
 
             relogio.Stop();
@@ -347,14 +346,28 @@ namespace Pesquisa_Ordenacao
             return message;
         }
 
-        /*public static string BucketSort(int[] v, int digits)
+        public static string BucketSort(int[] v, int digits)
         {
             var relogio = new System.Diagnostics.Stopwatch();
             int qtdCmp = 0, qtdTrc = 0;
             int n = v.Length;
             int[] copy = new int[n];
-            int pos, i, tmp;
+            int pos, i, tmp, ii;
             int[] buckets;
+
+            /*int biggest = v[0];
+
+            for (ii = 0; ii < n; ii += 1)
+            {
+                qtdCmp += 1;
+                if (v[ii] > biggest)
+                {
+                    qtdTrc += 1;
+                    biggest = v[ii];
+                }
+            }
+
+            int digits = (int)Math.Floor(Math.Log10(n) + 1);*/
 
             buckets = new int[digits];
 
@@ -365,6 +378,7 @@ namespace Pesquisa_Ordenacao
 
             for (i = 0; i < n; i+=1)
             {
+                qtdTrc += 1;
                 copy[i] = v[i];
                 buckets[v[i]]+=1;
             }
@@ -372,6 +386,7 @@ namespace Pesquisa_Ordenacao
             pos = 0;
             for (i = 0; i < digits; i++)
             {
+                qtdCmp += 1;
                 if (buckets[i] != 0)
                 {
                     tmp = buckets[i];
@@ -382,14 +397,16 @@ namespace Pesquisa_Ordenacao
 
             for (i = 0; i < n; i++)
             {
+                qtdTrc += 1;
                 tmp = copy[i];
-                v[buckets[tmp]++] = copy[i];
+                v[buckets[tmp]] = copy[i];
+                buckets[tmp] += 1;
             }
 
             relogio.Stop();
-            string message = Environment.NewLine + "Bucket Sort: " + Environment.NewLine + "Tempo passado: " + relogio.Elapsed + " " + Environment.NewLine + "Quantidade de comparações: " + mergeQtdCmp + " " + Environment.NewLine + "Quantidade de trocas: " + mergeQtdTrc + " " + Environment.NewLine;
+            string message = Environment.NewLine + "Bucket Sort: " + Environment.NewLine + "Tempo passado: " + relogio.Elapsed + " " + Environment.NewLine + "Quantidade de comparações: " + qtdCmp + " " + Environment.NewLine + "Quantidade de trocas: " + qtdTrc + " " + Environment.NewLine;
             return message;
-        }*/
+        }
 
         public static int getDigit(int val, int digit)
         {
@@ -402,34 +419,53 @@ namespace Pesquisa_Ordenacao
         {
             var relogio = new System.Diagnostics.Stopwatch();
             int qtdCmp = 0, qtdTrc = 0;
+            int biggest;
             int n = v.Length;
-            int pos, i, j, tmp;
+            int pos, i, j, tmp, ii;
             int[] bucket = new int[10];
             int[] copy = new int[n];
             relogio.Start();
+
+            /*biggest = v[0];
+
+            for(ii = 0; ii < n; ii += 1)
+            {
+                qtdCmp += 1;
+                if(v[ii] > biggest)
+                {
+                    qtdTrc += 1;
+                    biggest = v[ii];
+                }
+            }
+
+            int digits = (int) Math.Floor(Math.Log10(n) + 1);*/
             for (j = 0; j < digits; j += 1)
             {
                 for (i = 0; i < 10; i+=1) bucket[i] = 0;
                 for (i = 0; i < n; i += 1)
                 {
+                    qtdTrc += 1;
                     copy[i] = v[i];
                     bucket[getDigit(v[i], j)] += 1;
                 }
                 pos = 0;
                 for (i = 0; i < 10; i += 1)
                 {
+                    qtdCmp += 1;
                     tmp = bucket[i];
                     bucket[i] = pos;
                     pos = pos + tmp;
                 }
                 for (i = 0; i < n; i += 1)
                 {
+                    qtdTrc += 1;
                     tmp = getDigit(copy[i], j);
-                    v[bucket[tmp] += 1] = copy[i];
+                    v[bucket[tmp]] = copy[i];
+                    bucket[tmp] += 1;
                 }
             }
             relogio.Stop();
-            string message = Environment.NewLine + "Radix Sort: " + Environment.NewLine + "Tempo passado: " + relogio.Elapsed + " " + Environment.NewLine + "Quantidade de comparações: " + mergeQtdCmp + " " + Environment.NewLine + "Quantidade de trocas: " + mergeQtdTrc + " " + Environment.NewLine;
+            string message = Environment.NewLine + "Radix Sort: " + Environment.NewLine + "Tempo passado: " + relogio.Elapsed + " " + Environment.NewLine + "Quantidade de comparações: " + qtdCmp + " " + Environment.NewLine + "Quantidade de trocas: " + qtdTrc + " " + Environment.NewLine;
             return message;
         }
     }

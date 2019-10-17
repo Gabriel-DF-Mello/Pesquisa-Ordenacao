@@ -42,24 +42,35 @@ namespace Pesquisa_Ordenacao
             this.checkBoxShell = new System.Windows.Forms.CheckBox();
             this.btnRun = new System.Windows.Forms.Button();
             this.panelSorting = new System.Windows.Forms.Panel();
-            this.checkBoxMerge = new System.Windows.Forms.CheckBox();
-            this.panelFile = new System.Windows.Forms.Panel();
-            this.labelCurrentFile = new System.Windows.Forms.Label();
-            this.listResults = new System.Windows.Forms.TextBox();
+            this.labelOrdenar = new System.Windows.Forms.Label();
             this.checkBoxRadix = new System.Windows.Forms.CheckBox();
             this.checkBoxQuick = new System.Windows.Forms.CheckBox();
             this.checkBoxBucket = new System.Windows.Forms.CheckBox();
             this.checkBoxHeap = new System.Windows.Forms.CheckBox();
+            this.checkBoxMerge = new System.Windows.Forms.CheckBox();
+            this.panelFile = new System.Windows.Forms.Panel();
+            this.labelCurrentFile = new System.Windows.Forms.Label();
+            this.listResults = new System.Windows.Forms.TextBox();
+            this.panelPesquisa = new System.Windows.Forms.Panel();
+            this.checkBoxSequentialOrdered = new System.Windows.Forms.CheckBox();
+            this.textBoxPesquisa = new System.Windows.Forms.TextBox();
+            this.checkBoxBinarySearch = new System.Windows.Forms.CheckBox();
+            this.checkBoxSequentialSearch = new System.Windows.Forms.CheckBox();
+            this.labelPesquisar = new System.Windows.Forms.Label();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.labelErrorPesquisar = new System.Windows.Forms.Label();
+            this.labelErrorOrdenar = new System.Windows.Forms.Label();
             this.panelSorting.SuspendLayout();
             this.panelFile.SuspendLayout();
+            this.panelPesquisa.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSelectFile
             // 
-            this.btnSelectFile.Location = new System.Drawing.Point(10, 30);
-            this.btnSelectFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSelectFile.Location = new System.Drawing.Point(13, 37);
+            this.btnSelectFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSelectFile.Name = "btnSelectFile";
-            this.btnSelectFile.Size = new System.Drawing.Size(73, 19);
+            this.btnSelectFile.Size = new System.Drawing.Size(97, 23);
             this.btnSelectFile.TabIndex = 0;
             this.btnSelectFile.Text = "Selecionar";
             this.btnSelectFile.UseVisualStyleBackColor = true;
@@ -67,10 +78,10 @@ namespace Pesquisa_Ordenacao
             // 
             // btnNewFile
             // 
-            this.btnNewFile.Location = new System.Drawing.Point(88, 30);
-            this.btnNewFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnNewFile.Location = new System.Drawing.Point(117, 37);
+            this.btnNewFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNewFile.Name = "btnNewFile";
-            this.btnNewFile.Size = new System.Drawing.Size(56, 19);
+            this.btnNewFile.Size = new System.Drawing.Size(75, 23);
             this.btnNewFile.TabIndex = 1;
             this.btnNewFile.Text = "Novo";
             this.btnNewFile.UseVisualStyleBackColor = true;
@@ -79,20 +90,20 @@ namespace Pesquisa_Ordenacao
             // labelFile
             // 
             this.labelFile.AutoSize = true;
-            this.labelFile.Location = new System.Drawing.Point(10, 11);
-            this.labelFile.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelFile.Location = new System.Drawing.Point(13, 14);
             this.labelFile.Name = "labelFile";
-            this.labelFile.Size = new System.Drawing.Size(48, 13);
+            this.labelFile.Size = new System.Drawing.Size(63, 17);
             this.labelFile.TabIndex = 2;
             this.labelFile.Text = "Arquivos";
             // 
             // checkBoxSelection
             // 
             this.checkBoxSelection.AutoSize = true;
-            this.checkBoxSelection.Location = new System.Drawing.Point(10, 10);
-            this.checkBoxSelection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxSelection.Enabled = false;
+            this.checkBoxSelection.Location = new System.Drawing.Point(13, 40);
+            this.checkBoxSelection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxSelection.Name = "checkBoxSelection";
-            this.checkBoxSelection.Size = new System.Drawing.Size(92, 17);
+            this.checkBoxSelection.Size = new System.Drawing.Size(118, 21);
             this.checkBoxSelection.TabIndex = 3;
             this.checkBoxSelection.Text = "Selection Sort";
             this.checkBoxSelection.UseVisualStyleBackColor = true;
@@ -100,10 +111,11 @@ namespace Pesquisa_Ordenacao
             // checkBoxInsertion
             // 
             this.checkBoxInsertion.AutoSize = true;
-            this.checkBoxInsertion.Location = new System.Drawing.Point(10, 32);
-            this.checkBoxInsertion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxInsertion.Enabled = false;
+            this.checkBoxInsertion.Location = new System.Drawing.Point(13, 67);
+            this.checkBoxInsertion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxInsertion.Name = "checkBoxInsertion";
-            this.checkBoxInsertion.Size = new System.Drawing.Size(88, 17);
+            this.checkBoxInsertion.Size = new System.Drawing.Size(114, 21);
             this.checkBoxInsertion.TabIndex = 4;
             this.checkBoxInsertion.Text = "Insertion Sort";
             this.checkBoxInsertion.UseVisualStyleBackColor = true;
@@ -111,10 +123,11 @@ namespace Pesquisa_Ordenacao
             // checkBoxBubble
             // 
             this.checkBoxBubble.AutoSize = true;
-            this.checkBoxBubble.Location = new System.Drawing.Point(10, 54);
-            this.checkBoxBubble.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxBubble.Enabled = false;
+            this.checkBoxBubble.Location = new System.Drawing.Point(13, 94);
+            this.checkBoxBubble.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxBubble.Name = "checkBoxBubble";
-            this.checkBoxBubble.Size = new System.Drawing.Size(81, 17);
+            this.checkBoxBubble.Size = new System.Drawing.Size(104, 21);
             this.checkBoxBubble.TabIndex = 5;
             this.checkBoxBubble.Text = "Bubble Sort";
             this.checkBoxBubble.UseVisualStyleBackColor = true;
@@ -122,10 +135,11 @@ namespace Pesquisa_Ordenacao
             // checkBoxCocktail
             // 
             this.checkBoxCocktail.AutoSize = true;
-            this.checkBoxCocktail.Location = new System.Drawing.Point(10, 78);
-            this.checkBoxCocktail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxCocktail.Enabled = false;
+            this.checkBoxCocktail.Location = new System.Drawing.Point(13, 124);
+            this.checkBoxCocktail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxCocktail.Name = "checkBoxCocktail";
-            this.checkBoxCocktail.Size = new System.Drawing.Size(86, 17);
+            this.checkBoxCocktail.Size = new System.Drawing.Size(109, 21);
             this.checkBoxCocktail.TabIndex = 6;
             this.checkBoxCocktail.Text = "Cocktail Sort";
             this.checkBoxCocktail.UseVisualStyleBackColor = true;
@@ -133,10 +147,11 @@ namespace Pesquisa_Ordenacao
             // checkBoxComb
             // 
             this.checkBoxComb.AutoSize = true;
-            this.checkBoxComb.Location = new System.Drawing.Point(10, 100);
-            this.checkBoxComb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxComb.Enabled = false;
+            this.checkBoxComb.Location = new System.Drawing.Point(13, 151);
+            this.checkBoxComb.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxComb.Name = "checkBoxComb";
-            this.checkBoxComb.Size = new System.Drawing.Size(75, 17);
+            this.checkBoxComb.Size = new System.Drawing.Size(96, 21);
             this.checkBoxComb.TabIndex = 7;
             this.checkBoxComb.Text = "Comb Sort";
             this.checkBoxComb.UseVisualStyleBackColor = true;
@@ -144,20 +159,21 @@ namespace Pesquisa_Ordenacao
             // checkBoxShell
             // 
             this.checkBoxShell.AutoSize = true;
-            this.checkBoxShell.Location = new System.Drawing.Point(10, 123);
-            this.checkBoxShell.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxShell.Enabled = false;
+            this.checkBoxShell.Location = new System.Drawing.Point(13, 179);
+            this.checkBoxShell.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxShell.Name = "checkBoxShell";
-            this.checkBoxShell.Size = new System.Drawing.Size(71, 17);
+            this.checkBoxShell.Size = new System.Drawing.Size(91, 21);
             this.checkBoxShell.TabIndex = 8;
             this.checkBoxShell.Text = "Shell Sort";
             this.checkBoxShell.UseVisualStyleBackColor = true;
             // 
             // btnRun
             // 
-            this.btnRun.Location = new System.Drawing.Point(12, 354);
-            this.btnRun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnRun.Location = new System.Drawing.Point(16, 458);
+            this.btnRun.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(172, 19);
+            this.btnRun.Size = new System.Drawing.Size(229, 23);
             this.btnRun.TabIndex = 9;
             this.btnRun.Text = "Confirmar";
             this.btnRun.UseVisualStyleBackColor = true;
@@ -165,6 +181,7 @@ namespace Pesquisa_Ordenacao
             // 
             // panelSorting
             // 
+            this.panelSorting.Controls.Add(this.labelOrdenar);
             this.panelSorting.Controls.Add(this.checkBoxRadix);
             this.panelSorting.Controls.Add(this.checkBoxQuick);
             this.panelSorting.Controls.Add(this.checkBoxBucket);
@@ -176,19 +193,77 @@ namespace Pesquisa_Ordenacao
             this.panelSorting.Controls.Add(this.checkBoxInsertion);
             this.panelSorting.Controls.Add(this.checkBoxComb);
             this.panelSorting.Controls.Add(this.checkBoxBubble);
-            this.panelSorting.Location = new System.Drawing.Point(12, 90);
-            this.panelSorting.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelSorting.Location = new System.Drawing.Point(16, 110);
+            this.panelSorting.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelSorting.Name = "panelSorting";
-            this.panelSorting.Size = new System.Drawing.Size(172, 260);
+            this.panelSorting.Size = new System.Drawing.Size(229, 344);
             this.panelSorting.TabIndex = 10;
+            // 
+            // labelOrdenar
+            // 
+            this.labelOrdenar.AutoSize = true;
+            this.labelOrdenar.Location = new System.Drawing.Point(10, 10);
+            this.labelOrdenar.Name = "labelOrdenar";
+            this.labelOrdenar.Size = new System.Drawing.Size(61, 17);
+            this.labelOrdenar.TabIndex = 4;
+            this.labelOrdenar.Text = "Ordenar";
+            // 
+            // checkBoxRadix
+            // 
+            this.checkBoxRadix.AutoSize = true;
+            this.checkBoxRadix.Enabled = false;
+            this.checkBoxRadix.Location = new System.Drawing.Point(13, 315);
+            this.checkBoxRadix.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxRadix.Name = "checkBoxRadix";
+            this.checkBoxRadix.Size = new System.Drawing.Size(95, 21);
+            this.checkBoxRadix.TabIndex = 13;
+            this.checkBoxRadix.Text = "Radix Sort";
+            this.checkBoxRadix.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxQuick
+            // 
+            this.checkBoxQuick.AutoSize = true;
+            this.checkBoxQuick.Enabled = false;
+            this.checkBoxQuick.Location = new System.Drawing.Point(13, 232);
+            this.checkBoxQuick.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxQuick.Name = "checkBoxQuick";
+            this.checkBoxQuick.Size = new System.Drawing.Size(96, 21);
+            this.checkBoxQuick.TabIndex = 10;
+            this.checkBoxQuick.Text = "Quick Sort";
+            this.checkBoxQuick.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxBucket
+            // 
+            this.checkBoxBucket.AutoSize = true;
+            this.checkBoxBucket.Enabled = false;
+            this.checkBoxBucket.Location = new System.Drawing.Point(13, 288);
+            this.checkBoxBucket.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxBucket.Name = "checkBoxBucket";
+            this.checkBoxBucket.Size = new System.Drawing.Size(103, 21);
+            this.checkBoxBucket.TabIndex = 12;
+            this.checkBoxBucket.Text = "Bucket Sort";
+            this.checkBoxBucket.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxHeap
+            // 
+            this.checkBoxHeap.AutoSize = true;
+            this.checkBoxHeap.Enabled = false;
+            this.checkBoxHeap.Location = new System.Drawing.Point(13, 259);
+            this.checkBoxHeap.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxHeap.Name = "checkBoxHeap";
+            this.checkBoxHeap.Size = new System.Drawing.Size(94, 21);
+            this.checkBoxHeap.TabIndex = 11;
+            this.checkBoxHeap.Text = "Heap Sort";
+            this.checkBoxHeap.UseVisualStyleBackColor = true;
             // 
             // checkBoxMerge
             // 
             this.checkBoxMerge.AutoSize = true;
-            this.checkBoxMerge.Location = new System.Drawing.Point(10, 145);
-            this.checkBoxMerge.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBoxMerge.Enabled = false;
+            this.checkBoxMerge.Location = new System.Drawing.Point(13, 206);
+            this.checkBoxMerge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxMerge.Name = "checkBoxMerge";
-            this.checkBoxMerge.Size = new System.Drawing.Size(78, 17);
+            this.checkBoxMerge.Size = new System.Drawing.Size(100, 21);
             this.checkBoxMerge.TabIndex = 9;
             this.checkBoxMerge.Text = "Merge Sort";
             this.checkBoxMerge.UseVisualStyleBackColor = true;
@@ -199,19 +274,18 @@ namespace Pesquisa_Ordenacao
             this.panelFile.Controls.Add(this.btnNewFile);
             this.panelFile.Controls.Add(this.btnSelectFile);
             this.panelFile.Controls.Add(this.labelFile);
-            this.panelFile.Location = new System.Drawing.Point(12, 10);
-            this.panelFile.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelFile.Location = new System.Drawing.Point(16, 12);
+            this.panelFile.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelFile.Name = "panelFile";
-            this.panelFile.Size = new System.Drawing.Size(172, 76);
+            this.panelFile.Size = new System.Drawing.Size(229, 94);
             this.panelFile.TabIndex = 11;
             // 
             // labelCurrentFile
             // 
             this.labelCurrentFile.AutoSize = true;
-            this.labelCurrentFile.Location = new System.Drawing.Point(10, 51);
-            this.labelCurrentFile.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelCurrentFile.Location = new System.Drawing.Point(13, 63);
             this.labelCurrentFile.Name = "labelCurrentFile";
-            this.labelCurrentFile.Size = new System.Drawing.Size(36, 13);
+            this.labelCurrentFile.Size = new System.Drawing.Size(47, 17);
             this.labelCurrentFile.TabIndex = 3;
             this.labelCurrentFile.Text = "Qnt: 0";
             // 
@@ -220,70 +294,123 @@ namespace Pesquisa_Ordenacao
             this.listResults.BackColor = System.Drawing.SystemColors.InfoText;
             this.listResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listResults.ForeColor = System.Drawing.SystemColors.Window;
-            this.listResults.Location = new System.Drawing.Point(199, 10);
-            this.listResults.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.listResults.Location = new System.Drawing.Point(265, 12);
+            this.listResults.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listResults.Multiline = true;
             this.listResults.Name = "listResults";
             this.listResults.ReadOnly = true;
             this.listResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.listResults.Size = new System.Drawing.Size(308, 363);
+            this.listResults.Size = new System.Drawing.Size(409, 566);
             this.listResults.TabIndex = 12;
             this.listResults.Text = "...";
             // 
-            // checkBoxRadix
+            // panelPesquisa
             // 
-            this.checkBoxRadix.AutoSize = true;
-            this.checkBoxRadix.Location = new System.Drawing.Point(10, 233);
-            this.checkBoxRadix.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBoxRadix.Name = "checkBoxRadix";
-            this.checkBoxRadix.Size = new System.Drawing.Size(75, 17);
-            this.checkBoxRadix.TabIndex = 13;
-            this.checkBoxRadix.Text = "Radix Sort";
-            this.checkBoxRadix.UseVisualStyleBackColor = true;
+            this.panelPesquisa.Controls.Add(this.checkBoxSequentialOrdered);
+            this.panelPesquisa.Controls.Add(this.textBoxPesquisa);
+            this.panelPesquisa.Controls.Add(this.checkBoxBinarySearch);
+            this.panelPesquisa.Controls.Add(this.checkBoxSequentialSearch);
+            this.panelPesquisa.Controls.Add(this.labelPesquisar);
+            this.panelPesquisa.Location = new System.Drawing.Point(689, 12);
+            this.panelPesquisa.Name = "panelPesquisa";
+            this.panelPesquisa.Size = new System.Drawing.Size(263, 154);
+            this.panelPesquisa.TabIndex = 13;
             // 
-            // checkBoxQuick
+            // checkBoxSequentialOrdered
             // 
-            this.checkBoxQuick.AutoSize = true;
-            this.checkBoxQuick.Location = new System.Drawing.Point(10, 166);
-            this.checkBoxQuick.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBoxQuick.Name = "checkBoxQuick";
-            this.checkBoxQuick.Size = new System.Drawing.Size(76, 17);
-            this.checkBoxQuick.TabIndex = 10;
-            this.checkBoxQuick.Text = "Quick Sort";
-            this.checkBoxQuick.UseVisualStyleBackColor = true;
+            this.checkBoxSequentialOrdered.AutoSize = true;
+            this.checkBoxSequentialOrdered.Enabled = false;
+            this.checkBoxSequentialOrdered.Location = new System.Drawing.Point(18, 97);
+            this.checkBoxSequentialOrdered.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxSequentialOrdered.Name = "checkBoxSequentialOrdered";
+            this.checkBoxSequentialOrdered.Size = new System.Drawing.Size(178, 21);
+            this.checkBoxSequentialOrdered.TabIndex = 16;
+            this.checkBoxSequentialOrdered.Text = "Sequencial (Ordenado)";
+            this.checkBoxSequentialOrdered.UseVisualStyleBackColor = true;
             // 
-            // checkBoxBucket
+            // textBoxPesquisa
             // 
-            this.checkBoxBucket.AutoSize = true;
-            this.checkBoxBucket.Location = new System.Drawing.Point(10, 211);
-            this.checkBoxBucket.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBoxBucket.Name = "checkBoxBucket";
-            this.checkBoxBucket.Size = new System.Drawing.Size(82, 17);
-            this.checkBoxBucket.TabIndex = 12;
-            this.checkBoxBucket.Text = "Bucket Sort";
-            this.checkBoxBucket.UseVisualStyleBackColor = true;
+            this.textBoxPesquisa.Location = new System.Drawing.Point(18, 37);
+            this.textBoxPesquisa.Name = "textBoxPesquisa";
+            this.textBoxPesquisa.Size = new System.Drawing.Size(225, 22);
+            this.textBoxPesquisa.TabIndex = 15;
             // 
-            // checkBoxHeap
+            // checkBoxBinarySearch
             // 
-            this.checkBoxHeap.AutoSize = true;
-            this.checkBoxHeap.Location = new System.Drawing.Point(10, 188);
-            this.checkBoxHeap.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBoxHeap.Name = "checkBoxHeap";
-            this.checkBoxHeap.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxHeap.TabIndex = 11;
-            this.checkBoxHeap.Text = "Heap Sort";
-            this.checkBoxHeap.UseVisualStyleBackColor = true;
+            this.checkBoxBinarySearch.AutoSize = true;
+            this.checkBoxBinarySearch.Enabled = false;
+            this.checkBoxBinarySearch.Location = new System.Drawing.Point(18, 122);
+            this.checkBoxBinarySearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxBinarySearch.Name = "checkBoxBinarySearch";
+            this.checkBoxBinarySearch.Size = new System.Drawing.Size(74, 21);
+            this.checkBoxBinarySearch.TabIndex = 14;
+            this.checkBoxBinarySearch.Text = "Binária";
+            this.checkBoxBinarySearch.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxSequentialSearch
+            // 
+            this.checkBoxSequentialSearch.AutoSize = true;
+            this.checkBoxSequentialSearch.Enabled = false;
+            this.checkBoxSequentialSearch.Location = new System.Drawing.Point(18, 73);
+            this.checkBoxSequentialSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.checkBoxSequentialSearch.Name = "checkBoxSequentialSearch";
+            this.checkBoxSequentialSearch.Size = new System.Drawing.Size(200, 21);
+            this.checkBoxSequentialSearch.TabIndex = 14;
+            this.checkBoxSequentialSearch.Text = "Sequencial (Desordenado)";
+            this.checkBoxSequentialSearch.UseVisualStyleBackColor = true;
+            // 
+            // labelPesquisar
+            // 
+            this.labelPesquisar.AutoSize = true;
+            this.labelPesquisar.Location = new System.Drawing.Point(15, 14);
+            this.labelPesquisar.Name = "labelPesquisar";
+            this.labelPesquisar.Size = new System.Drawing.Size(71, 17);
+            this.labelPesquisar.TabIndex = 14;
+            this.labelPesquisar.Text = "Pesquisar";
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Location = new System.Drawing.Point(689, 171);
+            this.btnPesquisar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(263, 23);
+            this.btnPesquisar.TabIndex = 14;
+            this.btnPesquisar.Text = "Confirmar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // labelErrorPesquisar
+            // 
+            this.labelErrorPesquisar.AutoSize = true;
+            this.labelErrorPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelErrorPesquisar.ForeColor = System.Drawing.Color.Red;
+            this.labelErrorPesquisar.Location = new System.Drawing.Point(689, 177);
+            this.labelErrorPesquisar.Name = "labelErrorPesquisar";
+            this.labelErrorPesquisar.Size = new System.Drawing.Size(0, 17);
+            this.labelErrorPesquisar.TabIndex = 15;
+            // 
+            // labelErrorOrdenar
+            // 
+            this.labelErrorOrdenar.AutoSize = true;
+            this.labelErrorOrdenar.Location = new System.Drawing.Point(16, 487);
+            this.labelErrorOrdenar.Name = "labelErrorOrdenar";
+            this.labelErrorOrdenar.Size = new System.Drawing.Size(0, 17);
+            this.labelErrorOrdenar.TabIndex = 16;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(521, 385);
+            this.ClientSize = new System.Drawing.Size(964, 590);
+            this.Controls.Add(this.labelErrorOrdenar);
+            this.Controls.Add(this.labelErrorPesquisar);
+            this.Controls.Add(this.btnPesquisar);
+            this.Controls.Add(this.panelPesquisa);
             this.Controls.Add(this.listResults);
             this.Controls.Add(this.panelFile);
             this.Controls.Add(this.panelSorting);
             this.Controls.Add(this.btnRun);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -291,6 +418,8 @@ namespace Pesquisa_Ordenacao
             this.panelSorting.PerformLayout();
             this.panelFile.ResumeLayout(false);
             this.panelFile.PerformLayout();
+            this.panelPesquisa.ResumeLayout(false);
+            this.panelPesquisa.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,14 +440,22 @@ namespace Pesquisa_Ordenacao
         private System.Windows.Forms.Panel panelSorting;
         private System.Windows.Forms.Panel panelFile;
         private System.Windows.Forms.Label labelCurrentFile;
-        private ArrayList messages;
-        int[] template, v;
         private System.Windows.Forms.TextBox listResults;
         private System.Windows.Forms.CheckBox checkBoxMerge;
         private System.Windows.Forms.CheckBox checkBoxRadix;
         private System.Windows.Forms.CheckBox checkBoxQuick;
         private System.Windows.Forms.CheckBox checkBoxBucket;
         private System.Windows.Forms.CheckBox checkBoxHeap;
+        private System.Windows.Forms.Label labelOrdenar;
+        private System.Windows.Forms.Panel panelPesquisa;
+        private System.Windows.Forms.Label labelPesquisar;
+        private System.Windows.Forms.CheckBox checkBoxBinarySearch;
+        private System.Windows.Forms.CheckBox checkBoxSequentialSearch;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.TextBox textBoxPesquisa;
+        private System.Windows.Forms.Label labelErrorPesquisar;
+        private System.Windows.Forms.Label labelErrorOrdenar;
+        private System.Windows.Forms.CheckBox checkBoxSequentialOrdered;
     }
 }
 
