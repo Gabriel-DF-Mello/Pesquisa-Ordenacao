@@ -1,2 +1,3 @@
-# Pesquisa-Ordenacao
-Repository for the algorithms written in classes
+# Projects
+
+This repo has a few projects made in C\#, focused on searching and sorting
